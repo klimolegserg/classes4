@@ -102,15 +102,21 @@ list_st_course = ['Python']
 
 # средняя оценка за ДЗ по всем студентам курса
 def mid_stud_course_grade(list_student, list_st_course):
-    for course in list_st_course:
-        for student in list_student:
+    list_all = []
+    for x in list_student:
+        for subject, v in x.grades.item():
+            if list_st_course == subject:
+                rating = sum(v)/len(v)
+                list_all += [rating]
+    rating_all_st = sum(list_all)/len(list_all)
+    return print(rating_all_st)
 
-            # ?????
 
 #cool_mentor = Mentor('Some', 'Buddy')
 #cool_mentor.courses_attached += ['Python']
 
-mentor1 = Mentor('Ozzy', 'Osbourne') # создание экземпляров менторов
+# создание экземпляров менторов
+mentor1 = Mentor('Ozzy', 'Osbourne') 
 mentor2 = Mentor('Tommy', 'Iommi')
 
 #cool_mentor.rate_hw(best_student, 'Python', 10)
@@ -128,10 +134,15 @@ list_lc_course = ['Python']
 
 # средняя оценка за лекции у лекторов на курсе
 def mid_lc_course_grade(list_lecture, list_lc_course):
-    for course in list_lc_course:
-        for student in list_student:
-
-            # ??????
+    list_all = []
+    for y in list_lecture:
+        for subject, w in y.grades.items():
+            if list_lc_course == subject:
+                rating = sum(w)/len(w)
+                list_all = [rating]
+    rating_all_lc = sum(list_all)/len(list_all)
+    return print(rating_all_lc)
+                        
 
 reviewer1 = Reviewer('Steve', 'Harris') # создание экземпляров проверяющих
 reviewer2 = Reviewer('Clive', 'Burr')
